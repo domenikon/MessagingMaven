@@ -1,6 +1,5 @@
 package messaging_project;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -10,13 +9,10 @@ public class Main {
         UserServiceImpl userService = new UserServiceImpl();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose option: ");
-        System.out.println("Sign up! ");
-        System.out.println("Login. ");
+        userService.printOptions();
         int option = scanner.nextInt();
 
-        switch (option){
-
+        switch (option) {
             case 1:
                 userService.addUser();
                 break;

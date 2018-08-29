@@ -52,7 +52,7 @@ class UserServiceImpl {
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
 
-        if(filePath.getFileName().toString().equals(email + ".txt" ) ){
+        if(filePath.getFileName().equals(email + ".txt" ) ){
             {
                 System.out.println("Enter password: ");
                 String password = scanner.nextLine();
@@ -67,7 +67,7 @@ class UserServiceImpl {
             }
         }else {
             System.out.println("No such user! Try again.");
-            login();
+//            login();
         }
     }
 }

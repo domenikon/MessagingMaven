@@ -38,7 +38,10 @@ class UserServiceImpl {
             int age = scanner.nextInt();
             PrintWriter writer = new PrintWriter(email + ".txt");
             String age1 = Integer.toString(age);
-            // writer.append(email).append(" ").append(password).append(" ").append(name).append(" ").append(String.valueOf(age));
+            // writer.append(email).append(" ")
+            // .append(password).append(" ")
+            // .append(name).append(" ")
+            // .append(String.valueOf(age));
             writer.println(email);
             writer.println(password);
             writer.println(name);

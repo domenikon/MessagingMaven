@@ -11,17 +11,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserServiceImpl {
-    Scanner scanner = new Scanner(System.in);
+class UserServiceImpl {
+    private Scanner scanner = new Scanner(System.in);
     com.company.User user = new User();
 
-    public void printOptions() {
+    void printOptions() {
         System.out.println("Choose option: ");
         System.out.println("1 - Sign up! ");
         System.out.println("2 - Login. ");
     }
 
-    public void addUser() throws IOException {
+    void addUser() throws IOException {
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
@@ -56,7 +56,7 @@ public class UserServiceImpl {
         }else {
             System.out.println("Enter password: ");
             String password = scanner.nextLine();
-            Path filePath1 = Paths.get(email + ".txt");
+          //  Path filePath1 = Paths.get(email + ".txt");
             List<String> records = Files.readAllLines(filePath);
             if (records.get(0).equals(email) && records.get(1).equals(password)) {
                 System.out.println("Welcome " + records.get(2));

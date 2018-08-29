@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 class UserServiceImpl {
     private Scanner scanner = new Scanner(System.in);
-    com.company.User user = new User();
+    User user = new User();
 
     void printOptions() {
         System.out.println("Choose option: ");

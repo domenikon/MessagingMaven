@@ -8,13 +8,15 @@ public class User {
     private String email;
     private String name;
     private String password;
+    private int age;
     private Clock clock;
     private LocalDateTime lastLoginTime;
 
-    public User(String email, String name, String password, LocalDateTime lastLoginTime) {
+    public User() {
         this.email = email;
-        this.name = name;
         this.password = password;
+        this.name = name;
+        this.age = age;
         this.lastLoginTime = lastLoginTime;
     }
 
@@ -32,6 +34,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getPassword() {
@@ -56,6 +66,7 @@ public class User {
                 "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", age='" + age + '\'' +
                 ", lastLoginTime=" + lastLoginTime +
                 '}';
     }

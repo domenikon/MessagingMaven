@@ -26,7 +26,7 @@ public class UserServiceImpl {
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
-        if (!filePath.getFileName().equals(email)) {
+        if (filePath.getFileName().equals(email)) {
             System.out.println("User already exists! Please login.");
             login();
         } else {

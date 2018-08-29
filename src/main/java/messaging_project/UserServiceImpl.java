@@ -38,7 +38,7 @@ class UserServiceImpl {
             int age = scanner.nextInt();
             PrintWriter writer = new PrintWriter(email + ".txt");
             String age1 = Integer.toString(age);
-           // writer.write(email + " " + password + " "+ name + " " + age);
+            // writer.append(email).append(" ").append(password).append(" ").append(name).append(" ").append(String.valueOf(age));
             writer.println(email);
             writer.println(password);
             writer.println(name);
@@ -52,7 +52,7 @@ class UserServiceImpl {
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
 
-        if(filePath.getFileName().equals(email + ".txt" ) ){
+        if (filePath.getFileName().equals(email + ".txt")) {
             {
                 System.out.println("Enter password: ");
                 String password = scanner.nextLine();
@@ -65,7 +65,7 @@ class UserServiceImpl {
 
                 }
             }
-        }else {
+        } else {
             System.out.println("No such user! Try again.");
 //            login();
         }

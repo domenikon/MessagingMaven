@@ -52,21 +52,22 @@ class UserServiceImpl {
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
 
-        if(!filePath.getFileName().toString().equals(email + ".txt" ) ){
+        if(filePath.getFileName().toString().equals(email + ".txt" ) ){
+            {
+                System.out.println("Enter password: ");
+                String password = scanner.nextLine();
+                List<String> records = Files.readAllLines(filePath);
+
+                if (records.get(0).equals(email) && records.get(1).equals(password)) {
+                    System.out.println("Welcome " + records.get(2));
+                } else {
+                    System.out.println("Email or password is incorrect!");
+
+                }
+            }
+        }else {
             System.out.println("No such user! Try again.");
             login();
-        }else {
-            System.out.println("Enter password: ");
-            String password = scanner.nextLine();
-          //  Path filePath1 = Paths.get(email + ".txt");
-
-           List<String> records = Files.readAllLines(filePath);
-
-            if (records.get(0).equals(email) && records.get(1).equals(password)) {
-                System.out.println("Welcome " + records.get(2));
-            } else {
-                System.out.println("Email or password is incorrect!");
-            }
         }
     }
 }

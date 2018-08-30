@@ -1,13 +1,12 @@
 package messaging_project;
 
-import com.company.User;
-
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -20,6 +19,7 @@ class UserServiceImpl {
         System.out.println("Choose option: ");
         System.out.println("1 - Sign up! ");
         System.out.println("2 - Login. ");
+        System.out.println("3 - Exit. ");
     }
 
     void addUser() throws IOException {
@@ -37,15 +37,14 @@ class UserServiceImpl {
             System.out.println("Enter age: ");
             int age = scanner.nextInt();
             PrintWriter writer = new PrintWriter(email + ".txt");
-            String age1 = Integer.toString(age);
-            // writer.append(email).append(" ")
-            // .append(password).append(" ")
-            // .append(name).append(" ")
-            // .append(String.valueOf(age));
-            writer.println(email);
-            writer.println(password);
-            writer.println(name);
-            writer.println(age);
+             writer.append(email).append(" ")
+             .append(password).append(" ")
+             .append(name).append(" ")
+             .append(String.valueOf(age));
+//            writer.println(email);
+//            writer.println(password);
+//            writer.println(name);
+//            writer.println(age);
             writer.close();
         }
     }
@@ -82,26 +81,38 @@ class UserServiceImpl {
     }
 
     // TODO: 30.08.2018 to implement
-//    void loginSecond_with_parse() throws IOException {
-//        System.out.println("Enter email: ");
-//        String email = scanner.nextLine();
-//        Path filePath = Paths.get(email + ".txt");
-//
-//        if (filePath.getFileName().toString().equals(email + ".txt")) {
-//            {
-//
-//                    List<String> records = Files.readAllLines(filePath);
-//
-//                    System.out.println("Enter password: ");
-//                    String password = scanner.nextLine();
-//
-//                Boolean found = Arrays.asList(records.split(" ")).contains(keyword);
-//                if(found){
-//                    System.out.println("Keyword matched the string");
-//                }
-//                ;
-//            }
-//        }
+    void loginSecond_with_parse() throws IOException {
+        System.out.println("Enter email: ");
+        String email = scanner.nextLine();
+        System.out.println("Enter password: ");
+        String password = scanner.nextLine();
+        Path filePath = Paths.get(email + ".txt");
 
-//    }
+        if (filePath.getFileName().toString().equals(email + ".txt")) {
+            {
+                String content = new String(Files.readAllBytes(Paths.get(email + ".txt")));
+
+                List<String> list = new ArrayList<>();
+                list.add(content);
+
+                if(list.contains(email) && list.contains(password)){
+                    System.out.println("You are logged in!");
+                }else {
+                    System.out.println("Email or password is incorrect!");
+                }
+
+
+////                for (String string : list) {
+////                    if (string.contains(email)) {
+////                        System.out.println("Enter password: ");
+////                        String password = scanner.nextLine();
+////                        if (string.contains(password) ){}
+////                    }
+//
+//                }
+
+            }
+        }
+
+    }
 }

@@ -1,4 +1,4 @@
-package com.company;
+package messaging_project;
 
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -36,7 +36,7 @@ public class User {
         this.name = name;
     }
 
-    public int getNAge() {
+    public int getAge() {
         return age;
     }
 

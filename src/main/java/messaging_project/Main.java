@@ -17,8 +17,11 @@ public class Main {
                 userService.addUser();
                 break;
             case 2:
-                userService.login();
+                //userService.login();
+                userService.loginSecond_with_parse();
                 break;
+            case 3:
+                return;
         }
 
     }

@@ -61,6 +61,7 @@ class UserServiceImpl {
                     List<String> records = Files.readAllLines(filePath);
                     System.out.println("Enter password: ");
                     String password = scanner.nextLine();
+
                     if (!records.get(1).equals(password)) {
                         System.out.println("Email or password is incorrect!");
                         login();
@@ -77,4 +78,27 @@ class UserServiceImpl {
         }
 
     }
+
+//    void loginSecond() throws IOException {
+//        System.out.println("Enter email: ");
+//        String email = scanner.nextLine();
+//        Path filePath = Paths.get(email + ".txt");
+//
+//        if (filePath.getFileName().toString().equals(email + ".txt")) {
+//            {
+//
+//                    List<String> records = Files.readAllLines(filePath);
+//
+//                    System.out.println("Enter password: ");
+//                    String password = scanner.nextLine();
+//
+//                Boolean found = Arrays.asList(records.split(" ")).contains(keyword);
+//                if(found){
+//                    System.out.println("Keyword matched the string");
+//                }
+//                ;
+//            }
+//        }
+
+//    }
 }

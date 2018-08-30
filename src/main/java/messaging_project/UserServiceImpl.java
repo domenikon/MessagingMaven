@@ -61,17 +61,26 @@ class UserServiceImpl {
                     List<String> records = Files.readAllLines(filePath);
                     System.out.println("Enter password: ");
                     String password = scanner.nextLine();
-                    if (records.get(0).equals(email) && records.get(1).equals(password)) ;
-                    System.out.println("Welcome " + records.get(2));
-                }catch (IOException e){
-                    System.out.println("No such user! Try again.");
-                    login();
-                };
-            }
-        } else {
-            System.out.println("Email or password is incorrect!");
+                    if (!records.get(1).equals(password)) {
+                        System.out.println("Email or password is incorrect!");
+                        login();
+                    } else {
+                        if (records.get(0).equals(email) && records.get(1).equals(password)) ;
+                        System.out.println("Welcome " + records.get(2));
+                    }
 
+            } catch(IOException e){
+                System.out.println("No such user! Try again.");
+                login();
+            }
+            ;
         }
+    } else
+
+    {
+        System.out.println("Email or password is incorrect!");
 
     }
+
+}
 }

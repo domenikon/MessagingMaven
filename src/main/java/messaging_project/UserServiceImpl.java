@@ -81,7 +81,8 @@ class UserServiceImpl {
 
     }
 
-//    void loginSecond() throws IOException {
+    // TODO: 30.08.2018 to implement
+//    void loginSecond_with_parse() throws IOException {
 //        System.out.println("Enter email: ");
 //        String email = scanner.nextLine();
 //        Path filePath = Paths.get(email + ".txt");

@@ -65,22 +65,16 @@ class UserServiceImpl {
                         System.out.println("Email or password is incorrect!");
                         login();
                     } else {
-                        if (records.get(0).equals(email) && records.get(1).equals(password)) ;
-                        System.out.println("Welcome " + records.get(2));
+                        if (records.get(0).equals(email) && records.get(1).equals(password)){ ;
+                        System.out.println("Welcome back:) " + records.get(2));}
                     }
-
-            } catch(IOException e){
-                System.out.println("No such user! Try again.");
-                login();
+                } catch (IOException e) {
+                    System.out.println("No such user! Try again.");
+                    login();
+                }
+                ;
             }
-            ;
         }
-    } else
-
-    {
-        System.out.println("Email or password is incorrect!");
 
     }
-
-}
 }

@@ -27,7 +27,7 @@ class UserServiceImpl {
         Path filePath = Paths.get(email + ".txt");
         if (filePath.getFileName().equals(email)) {
             System.out.println("User already exists! Please login.");
-            login();
+            loginSecond_with_parse();
         } else {
             System.out.println("Enter password: ");
             String password = scanner.nextLine();
@@ -48,36 +48,36 @@ class UserServiceImpl {
         }
     }
 
-    private void login() throws IOException {
-        System.out.println("Enter email: ");
-        String email = scanner.nextLine();
-        Path filePath = Paths.get(email + ".txt");
-
-        if (filePath.getFileName().toString().equals(email + ".txt")) {
-            {
-                try {
-                    List<String> records = Files.readAllLines(filePath);
-                    System.out.println("Enter password: ");
-                    String password = scanner.nextLine();
-
-                    if (!records.get(1).equals(password)) {
-                        System.out.println("Email or password is incorrect!");
-                        login();
-                    } else {
-                        if (records.get(0).equals(email) && records.get(1).equals(password)) {
-                            ;
-                            System.out.println("Welcome back:) " + records.get(2));
-                        }
-                    }
-                } catch (IOException e) {
-                    System.out.println("No such user! Try again.");
-                    login();
-                }
-                ;
-            }
-        }
-
-    }
+//    private void login() throws IOException {
+//        System.out.println("Enter email: ");
+//        String email = scanner.nextLine();
+//        Path filePath = Paths.get(email + ".txt");
+//
+//        if (filePath.getFileName().toString().equals(email + ".txt")) {
+//            {
+//                try {
+//                    List<String> records = Files.readAllLines(filePath);
+//                    System.out.println("Enter password: ");
+//                    String password = scanner.nextLine();
+//
+//                    if (!records.get(1).equals(password)) {
+//                        System.out.println("Email or password is incorrect!");
+//                        login();
+//                    } else {
+//                        if (records.get(0).equals(email) && records.get(1).equals(password)) {
+//                            ;
+//                            System.out.println("Welcome back:) " + records.get(2));
+//                        }
+//                    }
+//                } catch (IOException e) {
+//                    System.out.println("No such user! Try again.");
+//                    login();
+//                }
+//                ;
+//            }
+//        }
+//
+//    }
 
     // TODO: 30.08.2018 to implement
     void loginSecond_with_parse() throws IOException {
@@ -95,22 +95,14 @@ class UserServiceImpl {
                 list.add(content);
 
                 if (list.get(0).contains(email) && list.get(0).contains(password)) {
-                    System.out.println("You are logged in!");
+                    System.out.println("You are logged in! Welcome back!");
                 } else {
                     System.out.println("Email or password is incorrect!");
                 }
 
-
-////                for (String string : list) {
-////                    if (string.contains(email)) {
-////                        System.out.println("Enter password: ");
-////                        String password = scanner.nextLine();
-////                        if (string.contains(password) ){}
-////                    }
-//
-//                }
-
             }
+        } else {
+            System.out.println("No such user!");
         }
 
     }

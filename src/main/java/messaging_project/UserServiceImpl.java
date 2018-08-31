@@ -89,7 +89,7 @@ class UserServiceImpl {
 
         if (filePath.getFileName().toString().equals(email + ".txt")) {
             {
-                String content = new String(Files.readAllBytes(Paths.get(email + ".txt")));
+                String content = new String(Files.readAllBytes(filePath));
 
                 List<String> list = new ArrayList<>();
                 list.add(content);

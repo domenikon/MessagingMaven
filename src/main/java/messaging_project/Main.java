@@ -8,10 +8,9 @@ public class Main {
 
         UserServiceImpl userService = new UserServiceImpl();
         Scanner scanner = new Scanner(System.in);
-
         userService.printOptions();
-        int option = scanner.nextInt();
 
+        int option = scanner.nextInt();
         switch (option) {
             case 1:
                 userService.addUser();

@@ -1,6 +1,5 @@
 package messaging_project;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -37,10 +36,10 @@ class UserServiceImpl {
             System.out.println("Enter age: ");
             int age = scanner.nextInt();
             PrintWriter writer = new PrintWriter(email + ".txt");
-             writer.append(email).append(" ")
-             .append(password).append(" ")
-             .append(name).append(" ")
-             .append(String.valueOf(age));
+            writer.append(email).append(" ")
+                    .append(password).append(" ")
+                    .append(name).append(" ")
+                    .append(String.valueOf(age));
 //            writer.println(email);
 //            writer.println(password);
 //            writer.println(name);
@@ -49,7 +48,7 @@ class UserServiceImpl {
         }
     }
 
-    void login() throws IOException {
+    private void login() throws IOException {
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
@@ -95,9 +94,9 @@ class UserServiceImpl {
                 List<String> list = new ArrayList<>();
                 list.add(content);
 
-                if(list.contains(email) && list.contains(password)){
+                if (list.get(0).contains(email) && list.get(0).contains(password)) {
                     System.out.println("You are logged in!");
-                }else {
+                } else {
                     System.out.println("Email or password is incorrect!");
                 }
 

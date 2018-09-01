@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchFieldException {
 
         UserServiceImpl userService = new UserServiceImpl();
         Scanner scanner = new Scanner(System.in);

@@ -21,7 +21,7 @@ class UserServiceImpl {
         System.out.println("3 - Exit. ");
     }
 
-    void addUser() throws IOException {
+    void addUser() throws IOException, NoSuchFieldException {
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
@@ -80,14 +80,15 @@ class UserServiceImpl {
 //    }
 
     // TODO: 30.08.2018 to implement
-    void loginSecond_with_parse() throws IOException {
+    void loginSecond_with_parse() throws NoSuchFieldException, IOException {
+
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
         System.out.println("Enter password: ");
         String password = scanner.nextLine();
         Path filePath = Paths.get(email + ".txt");
 
-        if (filePath.getFileName().toString().equals(email + ".txt")) {
+        if (!filePath.getFileName().toString().equals(email + ".txt")) {
             {
                 String content = new String(Files.readAllBytes(filePath));
 

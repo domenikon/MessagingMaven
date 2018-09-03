@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchFieldException {
 
         UserServiceImpl userService = new UserServiceImpl(new IOUtils(null));
         Scanner scanner = new Scanner(System.in);
-
         userService.printOptions();
-        int option = scanner.nextInt();
 
+        int option = scanner.nextInt();
         switch (option) {
             case 1:
                 userService.addUser();

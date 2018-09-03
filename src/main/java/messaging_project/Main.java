@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        UserServiceImpl userService = new UserServiceImpl();
+        UserServiceImpl userService = new UserServiceImpl(new IOUtils(null));
         Scanner scanner = new Scanner(System.in);
 
         userService.printOptions();

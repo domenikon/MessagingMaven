@@ -31,6 +31,15 @@ public class IOUtils {
         return fileExist(filePath);
     }
 
+    // TODO: 04.09.2018
+    public void findConversation(String email) throws IOException {
+        String content = new String(Files.readAllBytes(Paths.get(email)));
+        List<String> list = new ArrayList<>();
+        list.add(content);
+        if (list.contains(email)) {
+        }
+    }
+
     public void writeMessage(String message) {
         System.out.println(message);
     }
@@ -44,14 +53,12 @@ public class IOUtils {
     }
 
     public void readChat(String fileName) throws IOException {
-        if (!conversationFileExist(fileName)){
+        if (!conversationFileExist(fileName)) {
             System.out.println("No conversation with that user!");
-        }else {
-            //Path filePath = Paths.get(fileName);
+        } else {
             String content = new String(Files.readAllBytes(Paths.get(fileName)));
             System.out.println(content);
         }
-
     }
 
     public void writeMessageToUser(String message, String fileName) throws IOException {

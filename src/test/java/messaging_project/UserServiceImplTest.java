@@ -27,13 +27,11 @@ public class UserServiceImplTest {
 
     @Test
     public void checkUserExists() throws IOException {
-
         userService.addUser();
         doNothing().when(ioUtils).writeMessage("Enter email: ");
         when(ioUtils.readNextLine()).thenReturn("something wrong");
         when(ioUtils.fileExist("asasd.txt")).thenReturn(true);
         doNothing().when(ioUtils).writeMessage("User exist");
-
     }
 
     @Test

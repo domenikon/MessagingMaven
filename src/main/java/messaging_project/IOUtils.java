@@ -32,15 +32,6 @@ public class IOUtils {
         return fileExist(filePath);
     }
 
-    // TODO: 04.09.2018
-    public void findConversation(String email) throws IOException {
-        String content = String.valueOf(Files.readAllLines(Paths.get(email)));
-
-        if (content.contains(email)) {
-            return;
-        }
-    }
-
     void writeMessage(String message) {
         System.out.println(message);
     }
@@ -70,9 +61,6 @@ public class IOUtils {
         fileWrite.close();
     }
 
-    void createNewConversationFile(String sender, String receiver) throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter(sender + "_" + receiver + ".txt");
-        writer.close();
-    }
+
 
 }

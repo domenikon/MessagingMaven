@@ -15,6 +15,7 @@ import java.util.Scanner;
 class UserServiceImpl {
 
     IOUtils ioUtils;
+    ConversationImpl conversation;
 
     public UserServiceImpl(IOUtils ioUtils) {
         this.ioUtils = ioUtils;
@@ -88,7 +89,7 @@ class UserServiceImpl {
                         ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
                     } else {
                         System.out.println("Conversation does not exst! Creating new one.");
-                        ioUtils.createNewConversationFile(email, receiver);
+                        conversation.createNewConversationFile(email, receiver);
                     }
                     break;
                 case 2:

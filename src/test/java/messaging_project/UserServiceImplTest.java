@@ -17,7 +17,7 @@ public class UserServiceImplTest {
     @Mock
     IOUtils ioUtils;
 
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Before
     public void setUp() throws Exception {

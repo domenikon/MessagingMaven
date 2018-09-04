@@ -37,6 +37,7 @@ public class IOUtils {
         List<String> list = new ArrayList<>();
         list.add(content);
         if (list.contains(email)) {
+            return;
         }
     }
 

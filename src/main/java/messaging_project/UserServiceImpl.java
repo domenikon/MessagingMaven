@@ -133,7 +133,8 @@ class UserServiceImpl {
                             String fileName1 = email + "_" + receiver1 + ".txt";
                             if(ioUtils.conversationFileExist(fileName1)){
                                 ioUtils.readChat(fileName1);
-                            }else {}
+                            }else {// TODO: 04.09.2018
+                            }
                             break;
                         case 3:
                             break;

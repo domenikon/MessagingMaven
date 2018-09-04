@@ -32,7 +32,6 @@ class UserServiceImpl {
         String email = ioUtils.readNextLine();
         if (ioUtils.fileExist(email + ".txt")) {
             ioUtils.writeMessage("User already exists! Please login.");
-            //login();
         } else {
             ioUtils.writeMessage("Enter password: ");
             String password = ioUtils.readNextLine();
@@ -46,10 +45,6 @@ class UserServiceImpl {
                     .append(password).append(" ")
                     .append(name).append(" ")
                     .append(String.valueOf(age));
-//            writer.println(email);
-//            writer.println(password);
-//            writer.println(name);
-//            writer.println(age);
             writer.close();
         }
     }
@@ -95,11 +90,9 @@ class UserServiceImpl {
         String email = ioUtils.readNextLine();
         ioUtils.writeMessage("Enter password: ");
         String password = ioUtils.readNextLine();
-        Path filePath = Paths.get(email + ".txt");
 
-        if (filePath.getFileName().toString().equals(email + ".txt")) {
             {
-                String content = new String(Files.readAllBytes(Paths.get(email + ".txt")));
+                String content = String.valueOf(Files.readAllLines(Paths.get(email + ".txt")));
                 List<String> list = new ArrayList<>();
                 list.add(content);
 
@@ -115,7 +108,6 @@ class UserServiceImpl {
                     switch(option){
                         case 1:
                             System.out.println("Enter user email: ");
-                           // ioUtils.readNextLine();
                             String receiver = ioUtils.readNextLine();
                             String fileName = email + "_" + receiver + ".txt";
                             if(ioUtils.conversationFileExist(fileName)){
@@ -130,22 +122,19 @@ class UserServiceImpl {
                             System.out.println("Enter user email: ");
                             ioUtils.readNextLine();
                             String receiver1 = ioUtils.readNextLine();
-                            String fileName1 = email + "_" + receiver1 + ".txt";
-                            if(ioUtils.conversationFileExist(fileName1)){
-                                ioUtils.readChat(fileName1);
+                            String chatFile = email + "_" + receiver1 + ".txt";
+                            if(ioUtils.conversationFileExist(chatFile)){
+                                ioUtils.readChat(chatFile);
                             }else {// TODO: 04.09.2018
                             }
                             break;
                         case 3:
-                            break;
-
+                            return;
                     }
 
                 } else {
                     ioUtils.writeMessage("Email or password is incorrect!");
                 }
-
-            }
         }
 
     }

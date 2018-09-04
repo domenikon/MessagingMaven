@@ -57,7 +57,7 @@ class UserServiceImpl {
         Path filePath = Paths.get(email + ".txt");
         if (ioUtils.fileExist(filePath)) {
 
-            String content = String.valueOf(Files.readAllLines(Paths.get(filePath.getFileName().toString())));
+            String content = new String(Files.readAllBytes(Paths.get(filePath.getFileName().toString())));
 
             if (content.contains(email) && content.contains(password)) {
                 ioUtils.writeMessage("You are logged in!");
@@ -97,8 +97,8 @@ class UserServiceImpl {
                     String chatFile = email + "_" + receiver1 + ".txt";
                     if (ioUtils.conversationFileExist(chatFile)) {
                         ioUtils.readChat(chatFile);
-                    } else {// TODO: 04.09.2018
-                    }
+                    } //else {// TODO: 04.09.2018
+                   // }
                     break;
                 case 3:
                     return;

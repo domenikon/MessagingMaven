@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class IOUtils {
 
     // TODO: 04.09.2018
     public void findConversation(String email) throws IOException {
-        String content = new String(Files.readAllBytes(Paths.get(email)));
+        String content = String.valueOf(Files.readAllLines(Paths.get(email)));
 
         if (content.contains(email)) {
             return;

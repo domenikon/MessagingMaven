@@ -11,6 +11,7 @@ public class Main {
 
         while (true) {
             userService.printOptions();
+
             int option = scanner.nextInt();
 
             switch (option) {

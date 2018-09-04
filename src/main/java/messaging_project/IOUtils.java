@@ -17,7 +17,7 @@ public class IOUtils {
         this.scanner = new Scanner(System.in);
     }
 
-    private boolean fileExist(Path fileName) {
+    public boolean fileExist(Path fileName) {
         return Files.exists(fileName);
     }
 
@@ -58,7 +58,7 @@ public class IOUtils {
         if (!conversationFileExist(fileName)) {
             System.out.println("No conversation with that user!");
         } else {
-            String content = String.valueOf(Files.readAllLines(Paths.get(fileName)));
+            String content = new String(Files.readAllBytes(Paths.get(fileName)));
             System.out.println(content);
         }
     }

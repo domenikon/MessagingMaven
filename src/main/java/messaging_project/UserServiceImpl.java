@@ -115,11 +115,11 @@ class UserServiceImpl {
                     switch(option){
                         case 1:
                             System.out.println("Enter user email: ");
-                            ioUtils.readNextLine();
+                           // ioUtils.readNextLine();
                             String receiver = ioUtils.readNextLine();
                             String fileName = email + "_" + receiver + ".txt";
                             if(ioUtils.conversationFileExist(fileName)){
-                               // System.out.println("Your message here: ");
+                                System.out.println("Your message here: ");
                                 ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
                             }else{
                                 System.out.println("Conversation does not exst! Creating new one.");

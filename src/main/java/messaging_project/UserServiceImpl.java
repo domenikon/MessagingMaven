@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +40,7 @@ class UserServiceImpl {
             String name = ioUtils.readNextLine();
             ioUtils.writeMessage("Enter age: ");
             int age = ioUtils.readNextInt();
+            //String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
             PrintWriter writer = new PrintWriter(email + ".txt");
             writer.append(email).append(" ")
                     .append(password).append(" ")
@@ -98,7 +100,6 @@ class UserServiceImpl {
         if (filePath.getFileName().toString().equals(email + ".txt")) {
             {
                 String content = new String(Files.readAllBytes(Paths.get(email + ".txt")));
-
                 List<String> list = new ArrayList<>();
                 list.add(content);
 
@@ -122,7 +123,6 @@ class UserServiceImpl {
                                 ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
                             }else{
                                 System.out.println("Conversation does not exst! Creating new one.");
-                               // ioUtils.readNextLine();
                                 ioUtils.createNewConversationFile(email, receiver);
                             }
                             break;

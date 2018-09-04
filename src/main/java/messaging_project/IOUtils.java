@@ -50,7 +50,9 @@ public class IOUtils {
     }
 
     public int readNextInt() {
-        return scanner.nextInt();
+        int i = scanner.nextInt();
+        scanner.nextLine();
+        return i;
     }
 
     public void readChat(String fileName) throws IOException {

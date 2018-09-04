@@ -65,16 +65,9 @@ public class IOUtils {
     }
 
     public void writeMessageToUser(String message, String fileName) throws IOException {
-        if (!conversationFileExist(fileName)) {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-            writer.append(message);
-            writer.close();
-        } else {
-            FileWriter fileWrite = new FileWriter(fileName, true);
-            fileWrite.write("\n" + message);
-            fileWrite.close();
-        }
-        ;
+        FileWriter fileWrite = new FileWriter(fileName, true);
+        fileWrite.write("\n" + message);
+        fileWrite.close();
     }
 
     public void createNewConversationFile(String sender, String receiver) throws FileNotFoundException {

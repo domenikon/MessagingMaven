@@ -81,19 +81,19 @@ class UserServiceImpl {
 
             switch (option) {
                 case 1:
-                    System.out.println("Enter user email: ");
+                    ioUtils.writeMessage("Enter user email: ");
                     String receiver = ioUtils.readNextLine();
                     String fileName = email + "_" + receiver + ".txt";
                     if (ioUtils.conversationFileExist(fileName)) {
-                        System.out.println("Your message here: ");
+                        ioUtils.writeMessage("Your message here: ");
                         ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
                     } else {
-                        System.out.println("Conversation does not exists! Creating new one.");
+                        ioUtils.writeMessage("Conversation does not exists! Creating new one.");
                         conversation.createNewConversationFile(email, receiver);
                     }
                     break;
                 case 2:
-                    System.out.println("Enter user email: ");
+                    ioUtils.writeMessage("Enter user email: ");
                     String receiver1 = ioUtils.readNextLine();
                     String chatFile = email + "_" + receiver1 + ".txt";
                     if (ioUtils.conversationFileExist(chatFile)) {

@@ -27,6 +27,7 @@ public class IOUtils {
         return fileExist(filePath);
     }
 
+    // TODO: 05.09.2018 change file path of conv file
     boolean conversationFileExist(String filename) {
         Path filePath = Paths.get(filename);
         return fileExist(filePath);
@@ -60,7 +61,6 @@ public class IOUtils {
         fileWrite.write("\n" + message);
         fileWrite.close();
     }
-
 
 
 }

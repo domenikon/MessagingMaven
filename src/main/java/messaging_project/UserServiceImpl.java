@@ -62,16 +62,16 @@ class UserServiceImpl {
 
             if (content.contains(email) && content.contains(password)) {
                 ioUtils.writeMessage("You are logged in!");
-                Thread thread = new Thread(() -> {
-                    try {
-                        Thread.sleep(1000);
-                        ioUtils.readChat(email);
-                    } catch (IOException | InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-                thread.start();
-            }
+//                Thread thread = new Thread(() -> {
+//                    try {
+//                        Thread.sleep(1000);
+//                        ioUtils.readChat(email);
+//                    } catch (IOException | InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                });
+//                thread.start();
+//            }
             ioUtils.writeMessage("Choose option: ");
             ioUtils.writeMessage("1 - Write message to user: ");
             ioUtils.writeMessage("2 - Read message from user: ");
@@ -88,7 +88,7 @@ class UserServiceImpl {
                         System.out.println("Your message here: ");
                         ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
                     } else {
-                        System.out.println("Conversation does not exst! Creating new one.");
+                        System.out.println("Conversation does not exists! Creating new one.");
                         conversation.createNewConversationFile(email, receiver);
                     }
                     break;
@@ -110,4 +110,4 @@ class UserServiceImpl {
         }
     }
 
-}
+}}

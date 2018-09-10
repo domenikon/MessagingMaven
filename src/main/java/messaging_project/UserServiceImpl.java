@@ -124,20 +124,24 @@ class UserServiceImpl {
                     String receiver1 = ioUtils.readNextLine();
                     String chatFile = email + "_" + receiver1 + ".txt";
 
-                   // ioUtils.readTextFileByLines(chatFile);
+                    // ioUtils.readTextFileByLines(chatFile);
                     //if(ioUtils){
+
+                    ThreadChat threadChat = new ThreadChat(){
+
+                    };
+
                     Thread thread = new Thread(() -> {
                         try {
-                            while (true) {
-                                Thread.sleep(1000);
-                                //ioUtils.readTextFileByLines(chatFile);
-                            }
-                        } catch (InterruptedException e) {
+                            Thread.sleep(1000);
+                            ioUtils.readTextFileByLines(chatFile);
+
+                        } catch (InterruptedException | IOException e) {
                             e.printStackTrace();
                         }
                     });
                     thread.start();
-            //}
+
                     if (ioUtils.conversationFileExist(chatFile)) {
                         ioUtils.readChat(chatFile);
                     } else {
@@ -152,7 +156,6 @@ class UserServiceImpl {
         } else {
             ioUtils.writeMessage("Email or password is incorrect!");
         }
-
     }
 
     class ThreadChat extends Thread {

@@ -54,10 +54,9 @@ public class IOUtils {
         return i;
     }
 
-    public List<String> readTextFileByLines(String fileName, int rows) throws IOException {
+    public List<String> readTextFileByLines(String fileName) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(fileName));
         int size = lines.size();
-
 
         System.out.println(size);
         String line = lines.get(lines.size() - 1);
@@ -70,7 +69,7 @@ public class IOUtils {
             System.out.println("No conversation with that user!");
         } else {
             String content = new String(Files.readAllBytes(Paths.get(fileName)));
-                System.out.println(content);
+            System.out.println(content);
         }
     }
 

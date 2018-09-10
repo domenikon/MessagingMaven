@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,66 +14,89 @@ public class IOUtils {
 
     Scanner scanner;
 
-    public IOUtils(Scanner scanner) {
+    IOUtils(Scanner scanner) {
         this.scanner = new Scanner(System.in);
     }
 
-    public boolean fileExist(Path fileName) {
+    private boolean fileExist(Path fileName) {
         return Files.exists(fileName);
     }
 
-    public boolean fileExist(String filename) {
+    boolean fileExist(String filename) {
         Path filePath = Paths.get(filename + ".txt");
         return fileExist(filePath);
     }
 
-    public boolean conversationFileExist(String filename) {
+    boolean conversationFileExist(String filename) {
         Path filePath = Paths.get(filename);
         return fileExist(filePath);
     }
 
     // TODO: 04.09.2018
     public void findConversation(String email) throws IOException {
-        String content = new String(Files.readAllBytes(Paths.get(email)));
-        List<String> list = new ArrayList<>();
-        list.add(content);
-        if (list.contains(email)) {
-            return;
+        String content = String.valueOf(Files.readAllLines(Paths.get(email)));
+        if (!content.contains(email)) {
+            System.out.println("No such conversation!");
         }
     }
 
-    public void writeMessage(String message) {
+    void writeMessage(String message) {
         System.out.println(message);
     }
 
-    public String readNextLine() {
+    String readNextLine() {
         return scanner.nextLine();
     }
 
-    public int readNextInt() {
+    int readNextInt() {
         int i = scanner.nextInt();
         scanner.nextLine();
         return i;
     }
 
-    public void readChat(String fileName) throws IOException {
+    public List<String> readTextFileByLines(String fileName, int rows) throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get(fileName));
+        int size = lines.size();
+
+
+        System.out.println(size);
+        String line = lines.get(lines.size() - 1);
+        System.out.println(line);
+        return lines;
+    }
+
+    void readChat(String fileName) throws IOException {
         if (!conversationFileExist(fileName)) {
             System.out.println("No conversation with that user!");
         } else {
             String content = new String(Files.readAllBytes(Paths.get(fileName)));
-            System.out.println(content);
+                System.out.println(content);
         }
     }
 
-    public void writeMessageToUser(String message, String fileName) throws IOException {
+    void writeMessageToUser(String message, String fileName) throws IOException {
         FileWriter fileWrite = new FileWriter(fileName, true);
         fileWrite.write("\n" + message);
         fileWrite.close();
     }
 
-    public void createNewConversationFile(String sender, String receiver) throws FileNotFoundException {
+    void createNewConversationFile(String sender, String receiver) throws FileNotFoundException {
         PrintWriter writer = new PrintWriter(sender + "_" + receiver + ".txt");
         writer.close();
     }
+
+    public void checkMessages(String email) throws IOException {
+
+        List<String> userLines = Files.readAllLines(Paths.get(email + ".txt"));
+        int messagesCount = 0;
+        for (String line : userLines) {
+            String[] split = line.split(",");
+            if (split[0].equals(email)) {
+                messagesCount = userLines.size() - Integer.parseInt(split[1]);
+                break;
+            }
+        }
+    }
+
 
 }

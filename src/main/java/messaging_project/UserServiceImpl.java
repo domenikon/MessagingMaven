@@ -1,11 +1,10 @@
 package messaging_project;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,40 +53,40 @@ class UserServiceImpl {
         }
     }
 
-    private void login() throws IOException {
-        ioUtils.writeMessage("Enter email: ");
-        String email = ioUtils.readNextLine();
-        Path filePath = Paths.get(email + ".txt");
-
-        if (filePath.getFileName().toString().equals(email + ".txt")) {
-            {
-                try {
-                    List<String> records = Files.readAllLines(filePath);
-                    ioUtils.writeMessage("Enter password: ");
-                    String password = ioUtils.readNextLine();
-
-                    if (!records.get(1).equals(password)) {
-                        ioUtils.writeMessage("Email or password is incorrect!");
-                        login();
-                    } else {
-                        if (records.get(0).equals(email) && records.get(1).equals(password)) {
-                            ;
-                            ioUtils.writeMessage("Welcome back:) " + records.get(2));
-                            ioUtils.writeMessage("Choose option: ");
-                            ioUtils.writeMessage("1 - Write message to user: ");
-                            ioUtils.writeMessage("2 - Read message from user: ");
-                            ioUtils.writeMessage("3 - Sign out: ");
-                        }
-                    }
-                } catch (IOException e) {
-                    ioUtils.writeMessage("No such user! Try again.");
-                    login();
-                }
-                ;
-            }
-        }
-
-    }
+//    private void login() throws IOException {
+//        ioUtils.writeMessage("Enter email: ");
+//        String email = ioUtils.readNextLine();
+//        Path filePath = Paths.get(email + ".txt");
+//
+//        if (filePath.getFileName().toString().equals(email + ".txt")) {
+//            {
+//                try {
+//                    List<String> records = Files.readAllLines(filePath);
+//                    ioUtils.writeMessage("Enter password: ");
+//                    String password = ioUtils.readNextLine();
+//
+//                    if (!records.get(1).equals(password)) {
+//                        ioUtils.writeMessage("Email or password is incorrect!");
+//                        login();
+//                    } else {
+//                        if (records.get(0).equals(email) && records.get(1).equals(password)) {
+//                            ;
+//                            ioUtils.writeMessage("Welcome back:) " + records.get(2));
+//                            ioUtils.writeMessage("Choose option: ");
+//                            ioUtils.writeMessage("1 - Write message to user: ");
+//                            ioUtils.writeMessage("2 - Read message from user: ");
+//                            ioUtils.writeMessage("3 - Sign out: ");
+//                        }
+//                    }
+//                } catch (IOException e) {
+//                    ioUtils.writeMessage("No such user! Try again.");
+//                    login();
+//                }
+//                ;
+//            }
+//        }
+//
+//    }
 
     // TODO: 30.08.2018 to implement
     void loginSecond_with_parse() throws IOException {
@@ -95,58 +94,90 @@ class UserServiceImpl {
         String email = ioUtils.readNextLine();
         ioUtils.writeMessage("Enter password: ");
         String password = ioUtils.readNextLine();
-        Path filePath = Paths.get(email + ".txt");
 
-        if (filePath.getFileName().toString().equals(email + ".txt")) {
-            {
-                String content = new String(Files.readAllBytes(Paths.get(email + ".txt")));
-                List<String> list = new ArrayList<>();
-                list.add(content);
+        String content = new String(Files.readAllBytes(Paths.get(email + ".txt")));
 
-                if (list.get(0).contains(email) && list.get(0).contains(password)) {
-                    ioUtils.writeMessage("You are logged in!");
-                    ioUtils.writeMessage("Choose option: ");
-                    ioUtils.writeMessage("1 - Write message to user: ");
-                    ioUtils.writeMessage("2 - Read message from user: ");
-                    ioUtils.writeMessage("3 - Sign out: ");
+        if (content.contains(email) && content.contains(password)) {
+            ioUtils.writeMessage("You are logged in!");
+            ioUtils.writeMessage("Choose option: ");
+            ioUtils.writeMessage("1 - Write message to user: ");
+            ioUtils.writeMessage("2 - Read message from user: ");
+            ioUtils.writeMessage("3 - Sign out: ");
 
-                    int option = ioUtils.readNextInt();
+            int option = ioUtils.readNextInt();
 
-                    switch(option){
-                        case 1:
-                            System.out.println("Enter user email: ");
-                           // ioUtils.readNextLine();
-                            String receiver = ioUtils.readNextLine();
-                            String fileName = email + "_" + receiver + ".txt";
-                            if(ioUtils.conversationFileExist(fileName)){
-                                System.out.println("Your message here: ");
-                                ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
-                            }else{
-                                System.out.println("Conversation does not exst! Creating new one.");
-                                ioUtils.createNewConversationFile(email, receiver);
-                            }
-                            break;
-                        case 2:
-                            System.out.println("Enter user email: ");
-                            ioUtils.readNextLine();
-                            String receiver1 = ioUtils.readNextLine();
-                            String fileName1 = email + "_" + receiver1 + ".txt";
-                            if(ioUtils.conversationFileExist(fileName1)){
-                                ioUtils.readChat(fileName1);
-                            }else {// TODO: 04.09.2018
-                            }
-                            break;
-                        case 3:
-                            break;
-
+            switch (option) {
+                case 1:
+                    System.out.println("Enter user email: ");
+                    String receiver = ioUtils.readNextLine();
+                    String fileName = email + "_" + receiver + ".txt";
+                    if (ioUtils.conversationFileExist(fileName)) {
+                        System.out.println("Your message here: ");
+                        ioUtils.writeMessageToUser(ioUtils.readNextLine(), fileName);
+                    } else {
+                        System.out.println("Conversation does not exst! Creating new one.");
+                        ioUtils.createNewConversationFile(email, receiver);
                     }
+                    break;
+                case 2:
+                    System.out.println("Enter user email: ");
+                    String receiver1 = ioUtils.readNextLine();
+                    String chatFile = email + "_" + receiver1 + ".txt";
 
-                } else {
-                    ioUtils.writeMessage("Email or password is incorrect!");
-                }
+                   // ioUtils.readTextFileByLines(chatFile);
+                    //if(ioUtils){
+                    Thread thread = new Thread(() -> {
+                        try {
+                            while (true) {
+                                Thread.sleep(1000);
+                                //ioUtils.readTextFileByLines(chatFile);
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                    thread.start();
+            //}
+                    if (ioUtils.conversationFileExist(chatFile)) {
+                        ioUtils.readChat(chatFile);
+                    } else {
+                        System.out.println("No such conversation!");
+                    }
+                    break;
+                case 3:
+                    break;
 
             }
+
+        } else {
+            ioUtils.writeMessage("Email or password is incorrect!");
         }
 
     }
+
+    class ThreadChat extends Thread {
+
+        String fileName;
+        String message;
+        FileWriter fileWriter;
+
+        @Override
+        public void run() {
+            try {
+                // Path file = Paths.get(fileName);
+                fileWriter = new FileWriter(fileName, true);
+                BufferedWriter bufferFileWriter = new BufferedWriter(fileWriter);
+                bufferFileWriter.append(message);
+                bufferFileWriter.newLine();
+                bufferFileWriter.close();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        }
+
+
+    }
+//        }
+
+//    }
 }

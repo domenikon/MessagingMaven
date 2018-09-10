@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ead1c040-4c08-48cf-8c1a-91cdde05b38a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitgnore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messaging_project/IOUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messaging_project/IOUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messaging_project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messaging_project/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messaging_project/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messaging_project/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messaging_project/UserServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="ead1c040-4c08-48cf-8c1a-91cdde05b38a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,8 +98,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/messaging_project/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1046">
+            <state relative-caret-position="-450">
               <caret line="134" column="33" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
+              <folding>
+                <element signature="e#394#395#0" expanded="true" />
+                <element signature="e#432#433#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +120,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/messaging_project/IOUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
+            <state relative-caret-position="516">
               <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -279,53 +277,6 @@
               <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
               <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="messaging_project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exesizeTicketsMashine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exesizeTicketsMashine" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="messaging_project" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -336,7 +287,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536166610704" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536594536777" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
@@ -541,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536079009099</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="some small changes, you don't need to know">
+      <created>1536594060208</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1536594060208</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -578,7 +536,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="1" />
@@ -586,7 +543,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.2435275" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2435275" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.16612904" />
@@ -594,7 +551,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32903227" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32903227" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32903227" />
@@ -859,7 +816,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/messaging_project/IOUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="516">
           <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -893,8 +850,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/messaging_project/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1046">
+        <state relative-caret-position="-450">
           <caret line="134" column="33" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
+          <folding>
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

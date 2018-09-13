@@ -9,8 +9,9 @@ public class Main {
         UserServiceImpl userService = new UserServiceImpl(new IOUtils(null));
         Scanner scanner = new Scanner(System.in);
 
+        userService.printOptions();
         while (true) {
-            userService.printOptions();
+
             int option = scanner.nextInt();
             switch (option) {
                 case 1:

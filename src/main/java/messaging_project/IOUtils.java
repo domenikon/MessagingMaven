@@ -14,6 +14,12 @@ public class IOUtils {
 
     Scanner scanner;
 
+    public IOUtils(byte[] sizeNew) {
+        this.sizeNew = sizeNew;
+    }
+
+    private byte[] sizeNew;
+
     IOUtils(Scanner scanner) {
         this.scanner = new Scanner(System.in);
     }
@@ -32,13 +38,6 @@ public class IOUtils {
         return fileExist(filePath);
     }
 
-    // TODO: 04.09.2018
-    public void findConversation(String email) throws IOException {
-        String content = String.valueOf(Files.readAllLines(Paths.get(email)));
-        if (!content.contains(email)) {
-            System.out.println("No such conversation!");
-        }
-    }
 
     void writeMessage(String message) {
         System.out.println(message);
@@ -56,20 +55,17 @@ public class IOUtils {
 
     public List<String> readTextFileByLines(String fileName) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(fileName));
-        int size = lines.size();
-
-        System.out.println(size);
         String line = lines.get(lines.size() - 1);
         System.out.println(line);
         return lines;
     }
 
-    void readChat(String fileName) throws IOException {
+    synchronized void readChat(String fileName) throws IOException {
         if (!conversationFileExist(fileName)) {
             System.out.println("No conversation with that user!");
         } else {
-            String content = new String(Files.readAllBytes(Paths.get(fileName)));
-            System.out.println(content);
+                String content = new String(Files.readAllBytes(Paths.get(fileName)));
+                System.out.println(content);
         }
     }
 
@@ -84,16 +80,22 @@ public class IOUtils {
         writer.close();
     }
 
-    public void checkMessages(String email) throws IOException {
+    public String findConversationBetweenTwoUsers(String sender, String receiver) throws IOException {
+        String content = new String(Files.readAllBytes(Paths.get(sender + "_" + receiver + ".txt")));
+        byte[] size = content.getBytes();
+//        String message = "";
+//        if (((content.contains(sender) && content.contains(receiver)) ||
+//                ((content.contains(receiver) && (content.contains(sender))))))
+//        {
+//            writeMessage("found");
+//        }
+    return content;}
 
-        List<String> userLines = Files.readAllLines(Paths.get(email + ".txt"));
-        int messagesCount = 0;
-        for (String line : userLines) {
-            String[] split = line.split(",");
-            if (split[0].equals(email)) {
-                messagesCount = userLines.size() - Integer.parseInt(split[1]);
-                break;
-            }
+    // TODO: 04.09.2018
+    public void findConversation(String email) throws IOException {
+        String content = String.valueOf(Files.readAllLines(Paths.get(email)));
+        if (!content.contains(email)) {
+            System.out.println("Found!");
         }
     }
 
